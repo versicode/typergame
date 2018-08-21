@@ -1,0 +1,4 @@
+--exclude=client/node_modules
+--exclude=client/dist
+--exclude=client/build
+--exclude=server/node_modules
