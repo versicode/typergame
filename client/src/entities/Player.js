@@ -15,12 +15,17 @@ export default class Player extends GameObject {
         this.target = null
         this.x = x
         this.y = y
+        this.name = ''
         // this.width  = 50
         // this.height = 50
         // this.sprite = null
         // this.color  = '#cccccc'
         // this.text   = null
         // this.word   = 'player'
+    }
+
+    setName(name) {
+        this.name += name
     }
 
     init() {

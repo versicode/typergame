@@ -4,6 +4,7 @@ import FoodFactory from '../services/FoodFactory'
 import Typer from '../services/Typer'
 import * as dictionary from '../services/dictionary'
 import Player from '../entities/Player'
+import Client from '../services/Client'
 
 export default class Main extends Phaser.State {
 
@@ -13,6 +14,8 @@ export default class Main extends Phaser.State {
     }
 
     create() {
+        this.client = new Client()
+
         this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
         this.game.stage.disableVisibilityChange = true
@@ -26,6 +29,9 @@ export default class Main extends Phaser.State {
         this.player.init()
         this.foodFactory.init()
 
+        this.player.setName(prompt('What is your nickname?', 'Hero' + Math.floor(Math.random() * 10)))
+
+        this.client.askNewPlayer(this.player.name)
 
         // Initialize services
         this.typer = new Typer(this.game, dictionary, this.foodFactory, this.player)
