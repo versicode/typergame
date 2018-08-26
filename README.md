@@ -17,3 +17,18 @@ npm run dev
 ```
 
 monitor your players!
+
+# TODO Features
+
+- [x] server-client contact
+- [ ] see other players bodies
+- [ ] see other players movements
+- [ ] food position generation at server
+- [ ] food synchronization between players
+- [ ] player position generation at server
+- [ ] players battle system
+- [ ] players UI (name, life)
+- [ ] map size bigger + camera
+- [ ] AI bots
+- [ ] AI custom bots
+- [ ] players robots upgrades based on lvl
