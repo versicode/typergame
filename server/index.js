@@ -1,8 +1,11 @@
-import Koa      from 'koa'
-import config   from 'config'
-import http     from 'http'
-import ioServer from 'socket.io'
+import Koa        from 'koa'
+import config     from 'config'
+import http       from 'http'
+import ioServer   from 'socket.io'
 import RealPlayer from './entities/RealPlayer'
+import World      from './services/World'
+import PlayerRepository from './repository/PlayerRepository'
+import Game       from './services/Game'
 
 const app = new Koa()
 
@@ -15,22 +18,13 @@ const app = new Koa()
 const server = http.createServer(app.callback())
 const io = ioServer(server)
 
-let playerLastId = 0
-const players = []
+const playerRepository = new PlayerRepository()
 
-io.on('connection', (socket) => {
-    console.log('client connected')
-    console.log(players)
+const game = new Game(playerRepository)
 
-    socket.on('newplayer', (name) => {
-        console.log(`Name is: ${name}, welcome!`)
-        let player = new RealPlayer()
-        player.id = playerLastId++
-        player.name = name
-        players.push(player)
-        // Нужно его поместить в рандомное место
-    })
-})
+game.listen(io)
+
+// const world = new World(game, playerRepository)
 
 
 server.listen(config.get('port'), () => {

@@ -44,4 +44,12 @@ export default class Player extends GameObject {
     setTarget(target) {
         this.target = target
     }
+
+    toServer() {
+        return {
+            name: this.name,
+            x: this.x,
+            y: this.y,
+        }
+    }
 }

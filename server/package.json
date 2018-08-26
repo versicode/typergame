@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build": "rollup -c rollup.config.js --format cjs",
-        "dev": "NODE_ENV=development && rollup -c rollup.config.js --format cjs --watch | nodemon bundle.js",
+        "dev": "NODE_ENV=development nodemon ./bin/dev",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
@@ -17,12 +17,11 @@
         "socket.io": "^2.1.1"
     },
     "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-cli": "^6.26.0",
+        "babel-plugin-source-map-support": "^2.0.1",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
-        "babelrc-rollup": "^3.0.0",
-        "rollup": "^0.64.1",
-        "rollup-plugin-babel": "^3.0.7"
+        "babel-preset-env": "^1.6.1",
+        "babel-register": "^6.26.0",
+        "nodemon": "^1.17.2"
     }
 }

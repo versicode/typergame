@@ -14,7 +14,7 @@ export default class Main extends Phaser.State {
     }
 
     create() {
-        this.client = new Client()
+        this.client = new Client(this.game, this)
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
@@ -23,7 +23,8 @@ export default class Main extends Phaser.State {
 
         // Initialize game objects
 
-        this.player = new Player(this.game, 200, 200)
+        this.enemyPlayers = []
+        this.player = new Player(this.game, Math.floor(Math.random() * 700) + 100, Math.floor(Math.random() * 400) + 100  )
         this.foodFactory = new FoodFactory(this.game)
 
         this.player.init()
@@ -31,7 +32,7 @@ export default class Main extends Phaser.State {
 
         this.player.setName(prompt('What is your nickname?', 'Hero' + Math.floor(Math.random() * 10)))
 
-        this.client.askNewPlayer(this.player.name)
+        this.client.addNewPlayer(this.player)
 
         // Initialize services
         this.typer = new Typer(this.game, dictionary, this.foodFactory, this.player)
@@ -50,6 +51,8 @@ export default class Main extends Phaser.State {
     update() {
         this.foodFactory.update()
         this.player.update()
+        // if (this.enemyPlayers.length > 0) console.log('enemy player');
+        this.enemyPlayers.forEach((player) => player.update())
 
         this.game.physics.arcade.collide(this.player, this.player.target, (player, food) => {
             this.player.target = null
