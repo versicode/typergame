@@ -21,7 +21,8 @@ monitor your players!
 # TODO Features
 
 - [x] server-client contact
-- [ ] see other players bodies
+- [x] see other players bodies
+- [ ] map service
 - [ ] see other players movements
 - [ ] food position generation at server
 - [ ] food synchronization between players

@@ -35,7 +35,7 @@ export default class Main extends Phaser.State {
         this.client.addNewPlayer(this.player)
 
         // Initialize services
-        this.typer = new Typer(this.game, dictionary, this.foodFactory, this.player)
+        this.typer = new Typer(this.game, dictionary, this.foodFactory, this.player, this.client)
 
         this.typer.init()
 

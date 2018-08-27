@@ -16,7 +16,9 @@ export default class Game {
                 this.playerRepository.add(player)
 
                 // send to new player list of players
-                socket.emit(serverConfig.IO.OUTGOING.PLAYER.ALL, this.playerRepository.getAllPlayers())
+                const enemyPlayers = this.playerRepository.getAllPlayers().filter((enemyPlayer) => enemyPlayer.name !== player.name)
+
+                socket.emit(serverConfig.IO.OUTGOING.PLAYER.ALL, enemyPlayers)
 
                 // send new player to all players
                 socket.broadcast.emit(serverConfig.IO.OUTGOING.PLAYER.JOIN, player.toClient())

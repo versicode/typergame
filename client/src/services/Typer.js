@@ -1,9 +1,10 @@
 export default class Typer {
-    constructor(game, dictionary, foodFactory, player) {
+    constructor(game, dictionary, foodFactory, player, client) {
         this.game = game
         this.dictionary = dictionary
         this.foodFactory = foodFactory
         this.player = player
+        this.client = client
         this.currentTypedString = ''
     }
 
@@ -31,6 +32,7 @@ export default class Typer {
                     // this.game.physics.arcade.moveToObject(this.player, food, 2000)
 
                     this.player.setTarget(food)
+                    // this.client.playerMove(this.player)
                     // this.player.x = food.x
                     // this.player.y = food.y
                     this.player.life += 1

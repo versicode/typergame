@@ -15,6 +15,7 @@ export default class Player extends GameObject {
             name: this.name,
             x: this.x,
             y: this.y,
+            // target: this.target
         }
     }
 }

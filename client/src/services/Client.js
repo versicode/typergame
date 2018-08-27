@@ -14,6 +14,10 @@ export default class Client {
         this.socket.emit(clientConfig.IO.OUTGOING.PLAYER.JOIN, player.toServer())
     }
 
+    // playerMove(player) {
+        // this.socket.emit(clientConfig.IO.OUTGOING.PLAYER.JOIN, player.toServer())
+    // }
+
     listen() {
 
         this.socket.on(clientConfig.IO.INCOMING.PLAYER.ALL, (serverEnemyPlayers) => {

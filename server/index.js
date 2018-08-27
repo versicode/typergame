@@ -24,7 +24,7 @@ const game = new Game(playerRepository)
 
 game.listen(io)
 
-// const world = new World(game, playerRepository)
+const world = new World(playerRepository)
 
 
 server.listen(config.get('port'), () => {
