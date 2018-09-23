@@ -24,21 +24,5 @@ export default class PlayerRepository extends Repository {
         return this.collection.map((player) => player.toClient())
     }
 
-    watchForNewPlayers() {
-        this.collection.forEach((client) => {
-            socket.on(events.NEW_PLAYER, (name) => {
-                console.log(`Name is: ${name}, welcome!`)
-                let player = new RealPlayer()
-                player.id = playerLastId++
-                player.name = name
-                players.push(player)
-                // Нужно его поместить в рандомное место
-            })
-        })
-    }
-
-    watchForLeavingPlayers() {
-
-    }
 }
 

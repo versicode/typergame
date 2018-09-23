@@ -3,7 +3,7 @@ const serverConfig = {
     MAP: {
         WIDTH: 800,
         HEIGHT: 600,
-        PIECE: 32,
+        PIECE: 64,
     },
     IO: {
         DEFAULT_CONNECTION: 'connection',

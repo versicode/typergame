@@ -4,7 +4,7 @@ import Player from '../entities/Player'
 
 export default class Client {
     constructor(game, stage) {
-        this.socket = io.connect('http://localhost:3000')
+        this.socket = io.connect('http://localhost:3050')
         this.listen()
         this.game = game
         this.stage = stage

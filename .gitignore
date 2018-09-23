@@ -1,5 +1,7 @@
+.ctags.d
 tags
 package-lock.json
+drawing.svg
 
 client/node_modules
 client/build
